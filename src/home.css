@@ -1,8 +1,4 @@
-:root {
-    --ink: #080808;
-    --paper: #f4efe6;
-    --accent: #ef233c;
-}
+@import "main.css";
 
 * {
     box-sizing: border-box;
@@ -386,7 +382,7 @@ body {
 
     display: none;
 
-    background: #ef233c;
+    background: var(--accent);
 
     transform: skewX(-10deg);
 
@@ -419,7 +415,7 @@ body {
 
     width: 14%;
 
-    background: #080808;
+    background: var(--ink);
 
     transform: skewX(8deg);
 }
@@ -433,7 +429,7 @@ body {
     transform:
         translate(-50%, -50%) skewX(10deg) rotate(-4deg);
 
-    color: #f4efe6;
+    color: var(--paper);
 
     font-family:
         Impact,
@@ -450,5 +446,5 @@ body {
     white-space: nowrap;
 
     text-shadow:
-        8px 8px 0 #080808;
+        8px 8px 0 var(--ink);
 }

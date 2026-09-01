@@ -1,3 +1,5 @@
+@import "main.css";
+
 .workSection {
   min-height: 100vh;
   position: relative;
@@ -5,8 +7,8 @@
   padding: 7rem 6vw 8rem;
   background:
     radial-gradient(circle at 15% 20%, rgba(239, 35, 60, 0.22), transparent 22rem),
-    #f4efe6;
-  color: #080808;
+    var(--paper);
+  color: var(--ink);
 }
 
 .workSection::before {
@@ -27,7 +29,7 @@
   height: 10rem;
   top: -4rem;
   left: -10vw;
-  background: #080808;
+  background: var(--ink);
   transform: rotate(-4deg);
   z-index: 0;
 }
@@ -46,10 +48,10 @@
   font-family: Impact, Haettenschweiler, "Arial Narrow Bold", sans-serif;
   font-size: clamp(7rem, 14vw, 14rem);
   line-height: 0.7;
-  color: #ef233c;
+  color: var(--accent);
   transform: rotate(-6deg);
-  text-shadow: 8px 8px 0 #080808;
-  -webkit-text-stroke: 2px #080808;
+  text-shadow: 8px 8px 0 var(--ink);
+  -webkit-text-stroke: 2px var(--ink);
 }
 
 .workHeadingWrap {
@@ -60,8 +62,8 @@
 
 .workKicker {
   display: inline-block;
-  background: #080808;
-  color: #f4efe6;
+  background: var(--ink);
+  color: var(--paper);
   padding: 0.45rem 0.8rem;
   font-weight: 1000;
   font-size: 0.75rem;
@@ -80,7 +82,7 @@
 
 .workHeaderNote {
   align-self: center;
-  background: #ef233c;
+  background: var(--accent);
   color: white;
   padding: 0.9rem 1.1rem;
   font-weight: 1000;
@@ -88,7 +90,7 @@
   line-height: 1.3;
   letter-spacing: 0.12em;
   transform: rotate(5deg);
-  box-shadow: 7px 7px 0 #080808;
+  box-shadow: 7px 7px 0 var(--ink);
 }
 
 .projectList {
@@ -144,7 +146,7 @@
   position: relative;
   z-index: 2;
   min-height: 28rem;
-  background: #080808;
+  background: var(--ink);
   padding: 0.9rem;
   transform: rotate(-3deg);
   clip-path: polygon(
@@ -155,7 +157,7 @@
     3% 95%,
     0 13%
   );
-  box-shadow: 16px 16px 0 #ef233c;
+  box-shadow: 16px 16px 0 var(--accent);
   transition:
     transform 220ms ease,
     box-shadow 220ms ease;
@@ -163,7 +165,7 @@
 
 .projectCard:nth-child(even) .projectImage {
   transform: rotate(3deg);
-  box-shadow: -16px 16px 0 #ef233c;
+  box-shadow: -16px 16px 0 var(--accent);
 }
 
 .projectImagePlaceholder {
@@ -180,7 +182,7 @@
       rgba(8, 8, 8, 0.15) 8px,
       rgba(8, 8, 8, 0.15) 14px
     ),
-    #f4efe6;
+    var(--paper);
   clip-path: polygon(
     2% 1%,
     98% 3%,
@@ -208,8 +210,8 @@
   display: inline-block;
   padding: 0.45rem 0.7rem;
   margin-bottom: 0.8rem;
-  background: #080808;
-  color: #f4efe6;
+  background: var(--ink);
+  color: var(--paper);
   font-size: 0.7rem;
   font-weight: 1000;
   letter-spacing: 0.15em;
@@ -232,10 +234,10 @@
 
 .projectTitle span:last-child {
   display: inline-block;
-  color: #ef233c;
+  color: var(--accent);
   transform: translateX(0.2em) rotate(2deg);
-  text-shadow: 5px 5px 0 #080808;
-  -webkit-text-stroke: 1px #080808;
+  text-shadow: 5px 5px 0 var(--ink);
+  -webkit-text-stroke: 1px var(--ink);
 }
 
 .projectDescription {
@@ -253,12 +255,12 @@
 }
 
 .projectTags span {
-  border: 2px solid #080808;
+  border: 2px solid var(--ink);
   padding: 0.35rem 0.55rem;
   font-size: 0.68rem;
   font-weight: 1000;
   letter-spacing: 0.12em;
-  background: #f4efe6;
+  background: var(--paper);
 }
 
 .projectTags span:nth-child(even) {
@@ -276,13 +278,13 @@
   align-items: center;
   gap: 1rem;
   padding: 0.85rem 1rem;
-  background: #ef233c;
+  background: var(--accent);
   color: white;
   font-weight: 1000;
   letter-spacing: 0.1em;
   cursor: pointer;
   transform: skewX(-8deg) rotate(-1deg);
-  box-shadow: 6px 6px 0 #080808;
+  box-shadow: 6px 6px 0 var(--ink);
   transition:
     transform 160ms ease,
     box-shadow 160ms ease;
@@ -297,7 +299,7 @@
     translate(-3px, -3px)
     skewX(-8deg)
     rotate(-1deg);
-  box-shadow: 10px 10px 0 #080808;
+  box-shadow: 10px 10px 0 var(--ink);
 }
 
 /* ---------------------------------
@@ -324,7 +326,7 @@
     scale(1.025);
 
   box-shadow:
-    24px 24px 0 #ef233c;
+    24px 24px 0 var(--accent);
 }
 
 /* Even cards */
@@ -335,7 +337,7 @@
     scale(1.025);
 
   box-shadow:
-    -24px 24px 0 #ef233c;
+    -24px 24px 0 var(--accent);
 }
 
 /* Slightly punch up the image */
@@ -408,7 +410,7 @@
     rotate(-2deg);
 
   box-shadow:
-    10px 10px 0 #080808;
+    10px 10px 0 var(--ink);
 }
 
 /* Floating Persona-style annotation */
@@ -426,8 +428,8 @@
 
   padding: 0.45rem 0.7rem;
 
-  background: #080808;
-  color: #f4efe6;
+  background: var(--ink);
+  color: var(--paper);
 
   font-size: 0.68rem;
   font-weight: 1000;
@@ -454,7 +456,7 @@
   display: grid;
   place-items: center;
 
-  background: #ef233c;
+  background: var(--accent);
   color: white;
 
   font-family:
@@ -507,7 +509,7 @@
 
   display: none;
 
-  background: #ef233c;
+  background: var(--accent);
 
   pointer-events: none;
   overflow: hidden;
@@ -541,7 +543,7 @@
 
   width: 14%;
 
-  background: #080808;
+  background: var(--ink);
 
   transform: skewX(8deg);
 }
@@ -557,7 +559,7 @@
     skewX(10deg)
     rotate(-4deg);
 
-  color: #f4efe6;
+  color: var(--paper);
 
   font-family:
     Impact,
@@ -574,7 +576,7 @@
   white-space: nowrap;
 
   text-shadow:
-    8px 8px 0 #080808;
+    8px 8px 0 var(--ink);
 }
 
 @media (max-width: 900px) {

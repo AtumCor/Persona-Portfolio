@@ -1,9 +1,11 @@
+@import "main.css";
+
 .projectDetail {
   min-height: 100vh;
   background:
     radial-gradient(circle at 80% 15%, rgba(239, 35, 60, 0.18), transparent 20rem),
-    #f4efe6;
-  color: #080808;
+    var(--paper);
+  color: var(--ink);
   overflow-x: hidden;
 }
 
@@ -16,8 +18,8 @@
   border: 0;
   padding: 0.75rem 1rem;
 
-  background: #080808;
-  color: #f4efe6;
+  background: var(--ink);
+  color: var(--paper);
 
   font-weight: 1000;
   letter-spacing: 0.1em;
@@ -25,7 +27,7 @@
   cursor: pointer;
 
   transform: rotate(-2deg) skewX(-8deg);
-  box-shadow: 6px 6px 0 #ef233c;
+  box-shadow: 6px 6px 0 var(--accent);
 
   transition:
     transform 160ms ease,
@@ -38,7 +40,7 @@
     rotate(-2deg)
     skewX(-8deg);
 
-  box-shadow: 10px 10px 0 #ef233c;
+  box-shadow: 10px 10px 0 var(--accent);
 }
 
 /* HERO */
@@ -73,7 +75,7 @@
   top: 8%;
   right: -15vw;
 
-  background: #ef233c;
+  background: var(--accent);
 
   transform:
     rotate(-10deg)
@@ -93,7 +95,7 @@
   bottom: 8%;
   left: -10vw;
 
-  background: #080808;
+  background: var(--ink);
 
   transform: rotate(6deg);
 
@@ -121,13 +123,13 @@
 
   line-height: 0.65;
 
-  color: #ef233c;
+  color: var(--accent);
 
   -webkit-text-stroke:
-    3px #080808;
+    3px var(--ink);
 
   text-shadow:
-    9px 9px 0 #080808;
+    9px 9px 0 var(--ink);
 
   transform:
     rotate(-5deg);
@@ -142,8 +144,8 @@
     0.45rem
     0.8rem;
 
-  background: #080808;
-  color: #f4efe6;
+  background: var(--ink);
+  color: var(--paper);
 
   font-weight: 1000;
   font-size: 0.75rem;
@@ -180,17 +182,17 @@
 }
 
 .detailTitle span:last-child {
-  color: #ef233c;
+  color: var(--accent);
 
   transform:
     translateX(0.18em)
     rotate(2deg);
 
   -webkit-text-stroke:
-    2px #080808;
+    2px var(--ink);
 
   text-shadow:
-    6px 6px 0 #080808;
+    6px 6px 0 var(--ink);
 }
 
 .detailMeta {
@@ -201,7 +203,7 @@
 
 .detailMeta span {
   border:
-    2px solid #080808;
+    2px solid var(--ink);
 
   padding:
     0.4rem
@@ -211,7 +213,7 @@
   font-weight: 1000;
   letter-spacing: 0.1em;
 
-  background: #f4efe6;
+  background: var(--paper);
 }
 
 .detailMeta span:nth-child(1) {
@@ -230,7 +232,7 @@
 
   min-height: 34rem;
 
-  background: #080808;
+  background: var(--ink);
 
   padding: 0.9rem;
 
@@ -247,7 +249,7 @@
   );
 
   box-shadow:
-    20px 20px 0 #ef233c;
+    20px 20px 0 var(--accent);
 }
 
 .detailImagePlaceholder {
@@ -266,7 +268,7 @@
       rgba(8, 8, 8, 0.16) 8px,
       rgba(8, 8, 8, 0.16) 14px
     ),
-    #f4efe6;
+    var(--paper);
 
   clip-path: polygon(
     3% 2%,
@@ -296,8 +298,8 @@
     7rem 8vw
     9rem;
 
-  background: #080808;
-  color: #f4efe6;
+  background: var(--ink);
+  color: var(--paper);
 }
 
 .detailBody::before {
@@ -311,7 +313,7 @@
   width: 110vw;
   height: 6rem;
 
-  background: #080808;
+  background: var(--ink);
 
   transform: rotate(-2deg);
 
@@ -330,7 +332,7 @@
     0.55rem
     0.85rem;
 
-  background: #ef233c;
+  background: var(--accent);
   color: white;
 
   font-weight: 1000;
@@ -339,7 +341,7 @@
   transform: rotate(-2deg);
 
   box-shadow:
-    7px 7px 0 #f4efe6;
+    7px 7px 0 var(--paper);
 }
 
 .detailLead {
@@ -374,8 +376,8 @@
     2rem
     1.6rem;
 
-  background: #f4efe6;
-  color: #080808;
+  background: var(--paper);
+  color: var(--ink);
 
   min-height: 19rem;
 
@@ -411,7 +413,7 @@
 .detailSmallLabel {
   display: inline-block;
 
-  background: #ef233c;
+  background: var(--accent);
   color: white;
 
   padding:
@@ -460,7 +462,7 @@
 }
 
 .detailTools > span {
-  color: #ef233c;
+  color: var(--accent);
 
   font-weight: 1000;
   letter-spacing: 0.14em;
@@ -472,7 +474,7 @@
     0.65rem;
 
   border:
-    2px solid #f4efe6;
+    2px solid var(--paper);
 
   font-size: 0.72rem;
   letter-spacing: 0.1em;
@@ -498,7 +500,7 @@
 
   display: none;
 
-  background: #ef233c;
+  background: var(--accent);
 
   pointer-events: none;
 
@@ -533,7 +535,7 @@
 
   width: 14%;
 
-  background: #080808;
+  background: var(--ink);
 
   transform: skewX(8deg);
 }
@@ -549,7 +551,7 @@
     skewX(10deg)
     rotate(4deg);
 
-  color: #f4efe6;
+  color: var(--paper);
 
   font-family:
     Impact,
@@ -566,7 +568,7 @@
   white-space: nowrap;
 
   text-shadow:
-    8px 8px 0 #080808;
+    8px 8px 0 var(--ink);
 }
 
 @media (max-width: 900px) {
