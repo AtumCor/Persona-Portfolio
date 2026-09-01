@@ -1,0 +1,363 @@
+.contactSection {
+  position: relative;
+  min-height: 100vh;
+  padding: 7rem 6vw 5rem;
+  overflow: hidden;
+  background:
+    radial-gradient(circle at 78% 18%, rgba(239, 35, 60, 0.22), transparent 22rem),
+    #f4efe6;
+  color: #080808;
+}
+
+.contactSection::before {
+  content: "";
+  position: absolute;
+  inset: 0;
+  opacity: 0.12;
+  pointer-events: none;
+  background-image:
+    radial-gradient(circle, rgba(8, 8, 8, 0.8) 0 1px, transparent 1px);
+  background-size: 17px 17px;
+}
+
+.contactSection::after {
+  content: "";
+  position: absolute;
+  width: 85vw;
+  height: 9rem;
+  right: -14vw;
+  top: 8%;
+  background: #080808;
+  transform: rotate(-8deg) skewX(-12deg);
+  z-index: 0;
+}
+
+.contactHeader {
+  position: relative;
+  z-index: 3;
+  display: grid;
+  grid-template-columns: auto 1fr auto;
+  align-items: end;
+  gap: 2rem;
+  margin-bottom: 5rem;
+}
+
+.contactNumber {
+  font-family: Impact, Haettenschweiler, "Arial Narrow Bold", sans-serif;
+  font-size: clamp(7rem, 14vw, 14rem);
+  line-height: 0.7;
+  color: #ef233c;
+  -webkit-text-stroke: 2px #080808;
+  text-shadow: 8px 8px 0 #f4efe6;
+  transform: rotate(-6deg);
+}
+
+.contactKicker {
+  display: inline-block;
+  padding: 0.45rem 0.8rem;
+  background: #080808;
+  color: #f4efe6;
+  font-size: 0.72rem;
+  font-weight: 1000;
+  letter-spacing: 0.18em;
+  transform: rotate(-2deg);
+}
+
+.contactTitle {
+  margin: 0;
+  display: flex;
+  flex-direction: column;
+  font-family: Impact, Haettenschweiler, "Arial Narrow Bold", sans-serif;
+  font-size: clamp(5.5rem, 12vw, 11rem);
+  line-height: 0.76;
+  letter-spacing: -0.045em;
+}
+
+.contactTitle span:first-child {
+  transform: rotate(-2deg);
+}
+
+.contactTitle span:last-child {
+  color: #ef233c;
+  transform: translateX(0.16em) rotate(2deg);
+  -webkit-text-stroke: 2px #080808;
+  text-shadow: 6px 6px 0 #080808;
+}
+
+.contactStatus {
+  align-self: center;
+  display: flex;
+  flex-direction: column;
+  gap: 0.15rem;
+  padding: 0.8rem 1rem;
+  background: #ef233c;
+  color: white;
+  font-size: 0.65rem;
+  font-weight: 1000;
+  letter-spacing: 0.14em;
+  transform: rotate(5deg);
+  box-shadow: 7px 7px 0 #080808;
+}
+
+.contactStatus strong {
+  font-size: 1.15rem;
+}
+
+.contactLayout {
+  position: relative;
+  z-index: 3;
+  display: grid;
+  grid-template-columns: minmax(0, 0.9fr) minmax(360px, 1.1fr);
+  gap: 4rem;
+  align-items: start;
+}
+
+.contactMessage {
+  position: relative;
+  padding: 2.5rem;
+  background: #080808;
+  color: #f4efe6;
+  clip-path: polygon(
+    3% 2%,
+    97% 0,
+    100% 90%,
+    91% 100%,
+    0 96%
+  );
+  box-shadow: 15px 15px 0 #ef233c;
+}
+
+.contactMessageLabel {
+  display: inline-block;
+  padding: 0.4rem 0.6rem;
+  background: #ef233c;
+  color: white;
+  font-size: 0.68rem;
+  font-weight: 1000;
+  letter-spacing: 0.14em;
+  transform: rotate(-2deg);
+}
+
+.contactIntro {
+  margin: 1.8rem 0 1.2rem;
+  font-family: Impact, Haettenschweiler, "Arial Narrow Bold", sans-serif;
+  font-size: clamp(2.6rem, 5vw, 5rem);
+  line-height: 0.95;
+  letter-spacing: -0.025em;
+}
+
+.contactSubtext {
+  max-width: 34rem;
+  line-height: 1.5;
+  font-weight: 700;
+  color: rgba(244, 239, 230, 0.8);
+}
+
+.contactPrimary {
+  margin-top: 1.6rem;
+  display: inline-flex;
+  align-items: center;
+  gap: 0.8rem;
+  padding: 0.85rem 1rem;
+  background: #ef233c;
+  color: white;
+  text-decoration: none;
+  font-weight: 1000;
+  letter-spacing: 0.1em;
+  transform: rotate(-1deg) skewX(-8deg);
+  box-shadow: 7px 7px 0 #f4efe6;
+  transition:
+    transform 160ms ease,
+    box-shadow 160ms ease;
+}
+
+.contactPrimary span {
+  width: 2rem;
+  height: 2rem;
+  display: grid;
+  place-items: center;
+  background: #080808;
+  border-radius: 50%;
+}
+
+.contactPrimary:hover {
+  transform:
+    translate(-4px, -4px)
+    rotate(-1deg)
+    skewX(-8deg);
+  box-shadow: 11px 11px 0 #f4efe6;
+}
+
+.contactLinks {
+  display: flex;
+  flex-direction: column;
+  gap: 0.9rem;
+}
+
+.contactLink {
+  position: relative;
+  display: grid;
+  grid-template-columns: auto auto 1fr auto;
+  align-items: center;
+  gap: 1rem;
+  padding: 1.2rem 1.3rem;
+  background: #080808;
+  color: #f4efe6;
+  text-decoration: none;
+  clip-path: polygon(
+    2% 0,
+    100% 0,
+    97% 100%,
+    0 94%
+  );
+  transform-origin: right center;
+  transition:
+    transform 180ms ease,
+    background 180ms ease,
+    color 180ms ease;
+}
+
+.contactLink:nth-child(odd) {
+  transform: rotate(-1deg);
+}
+
+.contactLink:nth-child(even) {
+  transform: translateX(-1rem) rotate(1deg);
+}
+
+.contactLink:hover {
+  background: #ef233c;
+  color: white;
+  transform: translateX(-1rem) scale(1.025) rotate(-1deg);
+}
+
+.contactLinkNumber {
+  font-size: 0.65rem;
+  opacity: 0.55;
+  font-weight: 1000;
+}
+
+.contactLinkLabel {
+  min-width: 6.5rem;
+  font-size: 0.72rem;
+  font-weight: 1000;
+  letter-spacing: 0.13em;
+}
+
+.contactLink strong {
+  overflow: hidden;
+  text-overflow: ellipsis;
+  white-space: nowrap;
+  font-size: clamp(0.8rem, 1.5vw, 1.1rem);
+  letter-spacing: 0.04em;
+}
+
+.contactLinkArrow {
+  font-size: 1.5rem;
+}
+
+.contactFinal {
+  position: relative;
+  z-index: 3;
+  margin-top: 7rem;
+  min-height: 16rem;
+  display: grid;
+  grid-template-columns: auto 1fr auto;
+  align-items: center;
+  gap: 2rem;
+  padding: 2rem 3rem;
+  background: #ef233c;
+  color: white;
+  transform: rotate(-2deg);
+  clip-path: polygon(
+    2% 5%,
+    98% 0,
+    100% 89%,
+    95% 100%,
+    0 94%
+  );
+  box-shadow: 14px 14px 0 #080808;
+}
+
+.contactFinal > span {
+  font-size: 0.68rem;
+  font-weight: 1000;
+  letter-spacing: 0.14em;
+}
+
+.contactFinal strong {
+  justify-self: center;
+  font-family: Impact, Haettenschweiler, "Arial Narrow Bold", sans-serif;
+  font-size: clamp(3rem, 7vw, 7rem);
+  line-height: 0.85;
+  letter-spacing: -0.035em;
+  text-align: center;
+  -webkit-text-stroke: 1px #080808;
+  text-shadow: 6px 6px 0 #080808;
+}
+
+@media (max-width: 900px) {
+  .contactSection {
+    padding-inline: 1.5rem;
+  }
+
+  .contactHeader {
+    grid-template-columns: auto 1fr;
+  }
+
+  .contactStatus {
+    display: none;
+  }
+
+  .contactLayout {
+    grid-template-columns: 1fr;
+  }
+
+  .contactLinks {
+    margin-top: 1rem;
+  }
+
+  .contactFinal {
+    grid-template-columns: 1fr;
+    text-align: center;
+  }
+
+  .contactFinal strong {
+    order: -1;
+  }
+}
+
+@media (max-width: 600px) {
+  .contactHeader {
+    gap: 1rem;
+    margin-bottom: 4rem;
+  }
+
+  .contactNumber {
+    font-size: 6rem;
+  }
+
+  .contactTitle {
+    font-size: 4.9rem;
+  }
+
+  .contactMessage {
+    padding: 1.5rem;
+  }
+
+  .contactIntro {
+    font-size: 2.8rem;
+  }
+
+  .contactLink {
+    grid-template-columns: auto 1fr auto;
+  }
+
+  .contactLinkLabel {
+    display: none;
+  }
+
+  .contactFinal {
+    padding: 2rem 1.2rem;
+  }
+}

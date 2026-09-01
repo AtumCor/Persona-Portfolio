@@ -1,0 +1,454 @@
+:root {
+    --ink: #080808;
+    --paper: #f4efe6;
+    --accent: #ef233c;
+}
+
+* {
+    box-sizing: border-box;
+}
+
+body {
+    margin: 0;
+    background: var(--ink);
+    color: var(--paper);
+    font-family: Arial, Helvetica, sans-serif;
+}
+
+.personaHome {
+    min-height: 100vh;
+    background:
+        radial-gradient(circle at 72% 28%, rgba(255, 255, 255, 0.08), transparent 20rem),
+        var(--ink);
+    overflow: hidden;
+    position: relative;
+    isolation: isolate;
+}
+
+.personaNoise {
+    position: absolute;
+    inset: 0;
+    pointer-events: none;
+    opacity: 0.14;
+    background-image:
+        radial-gradient(circle, rgba(255, 255, 255, 0.7) 0 1px, transparent 1px),
+        radial-gradient(circle, rgba(255, 255, 255, 0.25) 0 1px, transparent 1px);
+    background-position: 0 0, 9px 9px;
+    background-size: 18px 18px;
+    z-index: 1;
+}
+
+.personaSlash {
+    position: absolute;
+    z-index: -1;
+}
+
+.personaSlashOne {
+    width: 62vw;
+    height: 16vh;
+    right: -10vw;
+    top: 8vh;
+    background: var(--accent);
+    transform: rotate(-12deg) skewX(-12deg);
+}
+
+.personaSlashTwo {
+    width: 48vw;
+    height: 7vh;
+    left: 20vw;
+    bottom: 7vh;
+    background: var(--paper);
+    transform: rotate(7deg) skewX(-18deg);
+}
+
+.personaHero {
+    min-height: 100vh;
+    position: relative;
+    display: grid;
+    grid-template-columns: minmax(0, 1.05fr) minmax(360px, 0.95fr);
+    align-items: center;
+    padding: 7vh 7vw 8vh;
+    gap: 2vw;
+}
+
+.heroCopy {
+    position: relative;
+    z-index: 5;
+    max-width: 760px;
+}
+
+.heroEyebrow {
+    display: inline-flex;
+    align-items: center;
+    gap: 0.8rem;
+    padding: 0.55rem 0.85rem;
+    background: var(--paper);
+    color: var(--ink);
+    font-size: 0.78rem;
+    font-weight: 900;
+    letter-spacing: 0.16em;
+    transform: rotate(-2deg);
+    box-shadow: 8px 8px 0 var(--accent);
+}
+
+.heroEyebrowMark {
+    color: var(--accent);
+}
+
+.heroTitle {
+    margin: 1.5rem 0 0;
+    font-family: Impact, Haettenschweiler, "Arial Narrow Bold", sans-serif;
+    font-size: clamp(4.6rem, 10vw, 9.7rem);
+    line-height: 0.74;
+    letter-spacing: -0.055em;
+    text-transform: uppercase;
+    display: flex;
+    flex-direction: column;
+    align-items: flex-start;
+}
+
+.heroTitle>span {
+    display: inline-block;
+}
+
+.heroTitleTop {
+    transform: rotate(-2deg);
+}
+
+.heroTitleAccent {
+    color: var(--accent);
+    -webkit-text-stroke: 2px var(--paper);
+    text-shadow: 8px 8px 0 rgba(0, 0, 0, 0.9);
+    transform: translateX(0.17em) rotate(1deg);
+}
+
+.heroTitleBottom {
+    background: var(--paper);
+    color: var(--ink);
+    padding: 0.05em 0.12em 0.11em;
+    transform: translateX(0.45em) rotate(-4deg) skewX(-7deg);
+    clip-path: polygon(2% 8%, 98% 0, 94% 92%, 0 100%);
+}
+
+.heroIntro {
+    width: min(510px, 88%);
+    margin: 1.9rem 0 0.7rem;
+    font-size: clamp(1rem, 1.5vw, 1.3rem);
+    line-height: 1.35;
+    font-weight: 700;
+    text-transform: uppercase;
+}
+
+.heroCta {
+    margin-top: 1.3rem;
+    border: 0;
+    padding: 0.9rem 1.3rem 0.9rem 0.95rem;
+    display: inline-flex;
+    align-items: center;
+    gap: 0.75rem;
+    background: var(--accent);
+    color: white;
+    cursor: pointer;
+    font-weight: 1000;
+    letter-spacing: 0.08em;
+    transform: rotate(-1deg) skewX(-8deg);
+    box-shadow: 7px 7px 0 var(--paper);
+    transition: 160ms ease;
+}
+
+.heroCta>* {
+    transform: skewX(8deg);
+}
+
+.heroCta:hover {
+    transform: translate(-4px, -4px) rotate(-1deg) skewX(-8deg);
+    box-shadow: 11px 11px 0 var(--paper);
+}
+
+.heroCtaArrow {
+    width: 2rem;
+    height: 2rem;
+    display: grid;
+    place-items: center;
+    background: var(--ink);
+    border-radius: 50%;
+}
+
+.heroVisual {
+    min-height: 70vh;
+    position: relative;
+    z-index: 3;
+}
+
+.visualBurst {
+    position: absolute;
+    inset: 50% auto auto 50%;
+    translate: -50% -50%;
+    clip-path: polygon(50% 0%, 58% 30%, 75% 6%, 70% 35%, 100% 23%, 75% 45%,
+            100% 56%, 72% 58%, 94% 87%, 65% 69%, 65% 100%, 50% 75%,
+            35% 100%, 36% 70%, 6% 88%, 28% 58%, 0 53%, 27% 43%,
+            0 24%, 32% 35%, 23% 5%, 43% 31%);
+}
+
+.visualBurstBack {
+    width: 34rem;
+    aspect-ratio: 1;
+    background: var(--paper);
+    rotate: 4deg;
+}
+
+.visualBurstFront {
+    width: 28rem;
+    aspect-ratio: 1;
+    background: var(--accent);
+    rotate: -7deg;
+}
+
+.portraitFrame {
+    position: absolute;
+    inset: 50% auto auto 50%;
+    translate: -50% -50%;
+    width: min(30vw, 390px);
+    min-width: 280px;
+    aspect-ratio: 0.74;
+    background: var(--ink);
+    transform: rotate(3deg);
+    clip-path: polygon(7% 3%, 94% 0, 100% 90%, 75% 100%, 0 92%, 3% 17%);
+    padding: 0.85rem;
+}
+
+.portraitPlaceholder {
+    width: 100%;
+    height: 100%;
+    display: grid;
+    place-items: center;
+    align-content: center;
+    gap: 0.45rem;
+    background:
+        repeating-linear-gradient(-45deg,
+            rgba(8, 8, 8, 0.08),
+            rgba(8, 8, 8, 0.08) 7px,
+            rgba(8, 8, 8, 0.18) 7px,
+            rgba(8, 8, 8, 0.18) 13px),
+        var(--paper);
+    color: var(--ink);
+    font-family: Impact, Haettenschweiler, "Arial Narrow Bold", sans-serif;
+    font-size: clamp(2rem, 4vw, 4rem);
+    letter-spacing: 0.05em;
+    clip-path: polygon(4% 1%, 98% 3%, 96% 97%, 3% 94%);
+}
+
+.portraitPlaceholder small {
+    font-family: Arial, Helvetica, sans-serif;
+    font-size: 0.7rem;
+    letter-spacing: 0.18em;
+    font-weight: 900;
+}
+
+.visualSticker {
+    position: absolute;
+    z-index: 6;
+    font-family: Impact, Haettenschweiler, "Arial Narrow Bold", sans-serif;
+    line-height: 0.88;
+}
+
+.visualStickerOne {
+    right: -2vw;
+    top: 18%;
+    background: var(--paper);
+    color: var(--ink);
+    padding: 1rem 1.2rem;
+    font-size: clamp(1.5rem, 3vw, 3rem);
+    transform: rotate(8deg);
+    box-shadow: 7px 7px 0 var(--accent);
+}
+
+.visualStickerTwo {
+    left: 0;
+    bottom: 14%;
+    background: var(--accent);
+    color: white;
+    padding: 0.7rem 1.1rem;
+    font-size: clamp(1.3rem, 2vw, 2.2rem);
+    transform: rotate(-8deg);
+    border: 4px solid var(--ink);
+}
+
+.personaNav {
+    position: absolute;
+    top: 6vh;
+    right: 2vw;
+    z-index: 10;
+    display: flex;
+    flex-direction: column;
+    align-items: flex-end;
+    gap: 0.35rem;
+}
+
+.personaNavItem {
+    min-width: 205px;
+    display: grid;
+    grid-template-columns: auto 1fr auto;
+    align-items: center;
+    gap: 0.7rem;
+    text-decoration: none;
+    color: var(--ink);
+    background: var(--paper);
+    padding: 0.55rem 0.75rem;
+    font-weight: 1000;
+    transform-origin: right center;
+    transition: 150ms ease;
+    clip-path: polygon(3% 0, 100% 0, 97% 100%, 0 90%);
+}
+
+.personaNavItem:nth-child(1) {
+    transform: rotate(1deg);
+}
+
+.personaNavItem:nth-child(2) {
+    transform: translateX(-12px) rotate(-2deg);
+}
+
+.personaNavItem:nth-child(3) {
+    transform: translateX(8px) rotate(1.3deg);
+}
+
+.personaNavItem:nth-child(4) {
+    transform: translateX(-5px) rotate(-1deg);
+}
+
+.personaNavItem:hover {
+    background: var(--accent);
+    color: white;
+    transform: translateX(-12px) scale(1.06) rotate(-2deg);
+}
+
+.personaNavIndex {
+    font-size: 0.65rem;
+    opacity: 0.65;
+}
+
+.personaNavLabel {
+    letter-spacing: 0.12em;
+}
+
+.personaNavArrow {
+    font-size: 1.25rem;
+}
+
+.heroFooter {
+    position: absolute;
+    left: 7vw;
+    right: 7vw;
+    bottom: 2.2vh;
+    z-index: 8;
+    display: grid;
+    grid-template-columns: auto 1fr auto;
+    align-items: center;
+    gap: 1rem;
+    color: var(--ink);
+    font-weight: 1000;
+    font-size: 0.67rem;
+    letter-spacing: 0.14em;
+}
+
+.heroFooterLine {
+    height: 2px;
+    background: var(--ink);
+}
+
+@media (max-width: 980px) {
+    .personaHero {
+        grid-template-columns: 1fr;
+        align-items: start;
+        padding-top: 8rem;
+    }
+
+    .heroVisual {
+        min-height: 58vh;
+        margin-top: -2rem;
+    }
+
+    .portraitFrame {
+        width: min(58vw, 360px);
+    }
+
+    .personaNav {
+        top: 1.5rem;
+        right: 1rem;
+    }
+}
+
+.pageTransition {
+    position: fixed;
+    inset: 0;
+    z-index: 9999;
+
+    display: none;
+
+    background: #ef233c;
+
+    transform: skewX(-10deg);
+
+    pointer-events: none;
+
+    overflow: hidden;
+}
+
+.pageTransition::before {
+    content: "";
+
+    position: absolute;
+    inset: 0;
+
+    background:
+        repeating-linear-gradient(-45deg,
+            rgba(0, 0, 0, 0.08),
+            rgba(0, 0, 0, 0.08) 8px,
+            transparent 8px,
+            transparent 16px);
+}
+
+.pageTransitionStripe {
+    position: absolute;
+
+    top: 0;
+    bottom: 0;
+
+    left: 56%;
+
+    width: 14%;
+
+    background: #080808;
+
+    transform: skewX(8deg);
+}
+
+.pageTransitionText {
+    position: absolute;
+
+    left: 50%;
+    top: 50%;
+
+    transform:
+        translate(-50%, -50%) skewX(10deg) rotate(-4deg);
+
+    color: #f4efe6;
+
+    font-family:
+        Impact,
+        Haettenschweiler,
+        "Arial Narrow Bold",
+        sans-serif;
+
+    font-size: clamp(5rem, 13vw, 13rem);
+
+    line-height: 0.8;
+
+    letter-spacing: -0.04em;
+
+    white-space: nowrap;
+
+    text-shadow:
+        8px 8px 0 #080808;
+}

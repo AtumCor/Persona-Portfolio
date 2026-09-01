@@ -1,0 +1,361 @@
+.aboutSection {
+  position: relative;
+  min-height: 100vh;
+  padding: 7rem 6vw 8rem;
+  overflow: hidden;
+  background:
+    radial-gradient(circle at 78% 20%, rgba(239, 35, 60, 0.18), transparent 22rem),
+    #080808;
+  color: #f4efe6;
+}
+
+.aboutSection::before {
+  content: "";
+  position: absolute;
+  inset: 0;
+  opacity: 0.08;
+  pointer-events: none;
+  background-image:
+    radial-gradient(circle, rgba(255,255,255,0.85) 0 1px, transparent 1px);
+  background-size: 18px 18px;
+}
+
+.aboutSection::after {
+  content: "";
+  position: absolute;
+  width: 75vw;
+  height: 8rem;
+  right: -15vw;
+  top: 7%;
+  background: #ef233c;
+  transform: rotate(-8deg) skewX(-14deg);
+  z-index: 0;
+}
+
+.aboutHeader {
+  position: relative;
+  z-index: 3;
+  display: grid;
+  grid-template-columns: auto 1fr auto;
+  align-items: end;
+  gap: 2rem;
+  margin-bottom: 5rem;
+}
+
+.aboutNumber {
+  font-family: Impact, Haettenschweiler, "Arial Narrow Bold", sans-serif;
+  font-size: clamp(7rem, 14vw, 14rem);
+  line-height: 0.7;
+  color: #ef233c;
+  -webkit-text-stroke: 2px #f4efe6;
+  text-shadow: 8px 8px 0 #080808;
+  transform: rotate(-6deg);
+}
+
+.aboutKicker {
+  display: inline-block;
+  background: #f4efe6;
+  color: #080808;
+  padding: 0.45rem 0.8rem;
+  font-size: 0.72rem;
+  font-weight: 1000;
+  letter-spacing: 0.18em;
+  transform: rotate(-2deg);
+}
+
+.aboutTitle {
+  margin: 0;
+  font-family: Impact, Haettenschweiler, "Arial Narrow Bold", sans-serif;
+  font-size: clamp(6rem, 14vw, 13rem);
+  line-height: 0.75;
+  letter-spacing: -0.045em;
+}
+
+.aboutStatus {
+  align-self: center;
+  display: flex;
+  flex-direction: column;
+  gap: 0.2rem;
+  padding: 0.8rem 1rem;
+  background: #f4efe6;
+  color: #080808;
+  font-size: 0.65rem;
+  font-weight: 1000;
+  letter-spacing: 0.13em;
+  transform: rotate(5deg);
+  box-shadow: 7px 7px 0 #ef233c;
+}
+
+.aboutStatus strong {
+  color: #ef233c;
+  font-size: 1.15rem;
+}
+
+.aboutLayout {
+  position: relative;
+  z-index: 3;
+  display: grid;
+  grid-template-columns: minmax(320px, 0.9fr) minmax(0, 1.1fr);
+  gap: 4rem;
+  align-items: center;
+}
+
+.aboutPortrait {
+  position: relative;
+  min-height: 34rem;
+  padding: 0.9rem;
+  background: #f4efe6;
+  transform: rotate(-3deg);
+  clip-path: polygon(
+    7% 0,
+    94% 3%,
+    100% 87%,
+    87% 100%,
+    4% 95%,
+    0 14%
+  );
+  box-shadow: 18px 18px 0 #ef233c;
+}
+
+.aboutPortraitInner {
+  width: 100%;
+  min-height: 32rem;
+  height: 100%;
+  display: grid;
+  place-items: center;
+  align-content: center;
+  gap: 0.45rem;
+  color: #080808;
+  background:
+    repeating-linear-gradient(
+      -45deg,
+      rgba(8, 8, 8, 0.08),
+      rgba(8, 8, 8, 0.08) 8px,
+      rgba(8, 8, 8, 0.16) 8px,
+      rgba(8, 8, 8, 0.16) 14px
+    ),
+    #f4efe6;
+  clip-path: polygon(
+    4% 2%,
+    98% 0,
+    96% 97%,
+    1% 95%
+  );
+}
+
+.aboutPortraitInner span {
+  font-family: Impact, Haettenschweiler, "Arial Narrow Bold", sans-serif;
+  font-size: clamp(3rem, 6vw, 6rem);
+  letter-spacing: 0.03em;
+}
+
+.aboutPortraitInner small {
+  font-weight: 1000;
+  letter-spacing: 0.16em;
+}
+
+.aboutPortraitTag {
+  position: absolute;
+  left: -1rem;
+  bottom: 8%;
+  background: #ef233c;
+  color: white;
+  padding: 0.7rem 1rem;
+  font-family: Impact, Haettenschweiler, "Arial Narrow Bold", sans-serif;
+  font-size: 1.7rem;
+  transform: rotate(-8deg);
+  border: 4px solid #080808;
+}
+
+.aboutInfoPanel {
+  position: relative;
+  padding: 2.5rem;
+  background: #f4efe6;
+  color: #080808;
+  clip-path: polygon(
+    2% 1%,
+    97% 0,
+    100% 92%,
+    94% 100%,
+    0 96%
+  );
+  box-shadow: 14px 14px 0 #ef233c;
+}
+
+.aboutLabel {
+  display: inline-block;
+  background: #080808;
+  color: #f4efe6;
+  padding: 0.45rem 0.65rem;
+  font-size: 0.68rem;
+  font-weight: 1000;
+  letter-spacing: 0.15em;
+  transform: rotate(-2deg);
+}
+
+.aboutInfoPanel h3 {
+  margin: 1.2rem 0 1.3rem;
+  display: flex;
+  flex-direction: column;
+  font-family: Impact, Haettenschweiler, "Arial Narrow Bold", sans-serif;
+  font-size: clamp(4rem, 8vw, 7rem);
+  line-height: 0.8;
+  letter-spacing: -0.04em;
+}
+
+.aboutInfoPanel h3 span {
+  color: #ef233c;
+  transform: translateX(0.15em) rotate(2deg);
+  text-shadow: 4px 4px 0 #080808;
+  -webkit-text-stroke: 1px #080808;
+}
+
+.aboutBio {
+  max-width: 42rem;
+  font-size: 1rem;
+  line-height: 1.55;
+  font-weight: 700;
+}
+
+.aboutSpecialties {
+  margin-top: 1.4rem;
+  display: flex;
+  flex-wrap: wrap;
+  gap: 0.5rem;
+}
+
+.aboutSpecialties span {
+  padding: 0.35rem 0.55rem;
+  border: 2px solid #080808;
+  font-size: 0.66rem;
+  font-weight: 1000;
+  letter-spacing: 0.11em;
+}
+
+.aboutSpecialties span:nth-child(odd) {
+  transform: rotate(-2deg);
+}
+
+.aboutSpecialties span:nth-child(even) {
+  transform: rotate(2deg);
+}
+
+.aboutStats {
+  margin-top: 2rem;
+  display: flex;
+  flex-direction: column;
+  gap: 1rem;
+}
+
+.aboutStatHeader {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  gap: 1rem;
+  margin-bottom: 0.35rem;
+  font-size: 0.72rem;
+  font-weight: 1000;
+  letter-spacing: 0.1em;
+}
+
+.aboutStatHeader strong {
+  color: #ef233c;
+  font-family: Impact, Haettenschweiler, "Arial Narrow Bold", sans-serif;
+  font-size: 1.2rem;
+}
+
+.aboutStatTrack {
+  position: relative;
+  height: 0.85rem;
+  overflow: hidden;
+  background: #d8d1c8;
+  transform: skewX(-10deg);
+}
+
+.aboutStatFill {
+  height: 100%;
+  background:
+    repeating-linear-gradient(
+      90deg,
+      #ef233c,
+      #ef233c 14px,
+      #080808 14px,
+      #080808 17px
+    );
+  transform-origin: left center;
+}
+
+.aboutFooterNote {
+  position: relative;
+  z-index: 3;
+  margin-top: 5rem;
+  display: flex;
+  justify-content: space-between;
+  gap: 2rem;
+  align-items: center;
+  padding-top: 1.3rem;
+  border-top: 2px solid rgba(244, 239, 230, 0.5);
+  font-size: 0.7rem;
+  font-weight: 1000;
+  letter-spacing: 0.14em;
+}
+
+.aboutFooterNote strong {
+  color: #ef233c;
+  font-size: clamp(1rem, 2vw, 1.6rem);
+  transform: rotate(-1deg);
+}
+
+@media (max-width: 900px) {
+  .aboutSection {
+    padding-inline: 1.5rem;
+  }
+
+  .aboutHeader {
+    grid-template-columns: auto 1fr;
+  }
+
+  .aboutStatus {
+    display: none;
+  }
+
+  .aboutLayout {
+    grid-template-columns: 1fr;
+  }
+
+  .aboutPortrait {
+    min-height: 28rem;
+  }
+
+  .aboutPortraitInner {
+    min-height: 26rem;
+  }
+}
+
+@media (max-width: 600px) {
+  .aboutHeader {
+    gap: 1rem;
+    margin-bottom: 4rem;
+  }
+
+  .aboutNumber {
+    font-size: 6rem;
+  }
+
+  .aboutTitle {
+    font-size: 5.2rem;
+  }
+
+  .aboutInfoPanel {
+    padding: 1.5rem;
+  }
+
+  .aboutInfoPanel h3 {
+    font-size: 4.5rem;
+  }
+
+  .aboutFooterNote {
+    flex-direction: column;
+    align-items: flex-start;
+  }
+}

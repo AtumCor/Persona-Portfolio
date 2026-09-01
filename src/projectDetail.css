@@ -1,0 +1,616 @@
+.projectDetail {
+  min-height: 100vh;
+  background:
+    radial-gradient(circle at 80% 15%, rgba(239, 35, 60, 0.18), transparent 20rem),
+    #f4efe6;
+  color: #080808;
+  overflow-x: hidden;
+}
+
+.detailBack {
+  position: fixed;
+  top: 1.5rem;
+  left: 1.5rem;
+  z-index: 50;
+
+  border: 0;
+  padding: 0.75rem 1rem;
+
+  background: #080808;
+  color: #f4efe6;
+
+  font-weight: 1000;
+  letter-spacing: 0.1em;
+
+  cursor: pointer;
+
+  transform: rotate(-2deg) skewX(-8deg);
+  box-shadow: 6px 6px 0 #ef233c;
+
+  transition:
+    transform 160ms ease,
+    box-shadow 160ms ease;
+}
+
+.detailBack:hover {
+  transform:
+    translate(-3px, -3px)
+    rotate(-2deg)
+    skewX(-8deg);
+
+  box-shadow: 10px 10px 0 #ef233c;
+}
+
+/* HERO */
+
+.detailHero {
+  min-height: 100vh;
+
+  display: grid;
+  grid-template-columns:
+    minmax(0, 0.95fr)
+    minmax(320px, 1.05fr);
+
+  align-items: center;
+
+  gap: 3rem;
+
+  padding:
+    8rem 7vw
+    6rem;
+
+  position: relative;
+}
+
+.detailHero::before {
+  content: "";
+
+  position: absolute;
+
+  width: 70vw;
+  height: 11rem;
+
+  top: 8%;
+  right: -15vw;
+
+  background: #ef233c;
+
+  transform:
+    rotate(-10deg)
+    skewX(-12deg);
+
+  z-index: 0;
+}
+
+.detailHero::after {
+  content: "";
+
+  position: absolute;
+
+  width: 55vw;
+  height: 4rem;
+
+  bottom: 8%;
+  left: -10vw;
+
+  background: #080808;
+
+  transform: rotate(6deg);
+
+  z-index: 0;
+}
+
+.detailIntro {
+  position: relative;
+  z-index: 3;
+
+  display: flex;
+  flex-direction: column;
+  align-items: flex-start;
+}
+
+.detailNumber {
+  font-family:
+    Impact,
+    Haettenschweiler,
+    "Arial Narrow Bold",
+    sans-serif;
+
+  font-size:
+    clamp(8rem, 18vw, 17rem);
+
+  line-height: 0.65;
+
+  color: #ef233c;
+
+  -webkit-text-stroke:
+    3px #080808;
+
+  text-shadow:
+    9px 9px 0 #080808;
+
+  transform:
+    rotate(-5deg);
+}
+
+.detailKicker {
+  margin-top: 1rem;
+
+  display: inline-block;
+
+  padding:
+    0.45rem
+    0.8rem;
+
+  background: #080808;
+  color: #f4efe6;
+
+  font-weight: 1000;
+  font-size: 0.75rem;
+  letter-spacing: 0.18em;
+
+  transform: rotate(-2deg);
+}
+
+.detailTitle {
+  margin:
+    1rem 0
+    1.4rem;
+
+  display: flex;
+  flex-direction: column;
+
+  font-family:
+    Impact,
+    Haettenschweiler,
+    "Arial Narrow Bold",
+    sans-serif;
+
+  font-size:
+    clamp(5rem, 10vw, 10rem);
+
+  line-height: 0.76;
+
+  letter-spacing: -0.045em;
+}
+
+.detailTitle span:first-child {
+  transform:
+    rotate(-2deg);
+}
+
+.detailTitle span:last-child {
+  color: #ef233c;
+
+  transform:
+    translateX(0.18em)
+    rotate(2deg);
+
+  -webkit-text-stroke:
+    2px #080808;
+
+  text-shadow:
+    6px 6px 0 #080808;
+}
+
+.detailMeta {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 0.55rem;
+}
+
+.detailMeta span {
+  border:
+    2px solid #080808;
+
+  padding:
+    0.4rem
+    0.6rem;
+
+  font-size: 0.68rem;
+  font-weight: 1000;
+  letter-spacing: 0.1em;
+
+  background: #f4efe6;
+}
+
+.detailMeta span:nth-child(1) {
+  transform: rotate(-2deg);
+}
+
+.detailMeta span:nth-child(2) {
+  transform: rotate(2deg);
+}
+
+/* HERO IMAGE */
+
+.detailHeroImage {
+  position: relative;
+  z-index: 3;
+
+  min-height: 34rem;
+
+  background: #080808;
+
+  padding: 0.9rem;
+
+  transform:
+    rotate(3deg);
+
+  clip-path: polygon(
+    6% 0,
+    96% 4%,
+    100% 89%,
+    87% 100%,
+    2% 94%,
+    0 12%
+  );
+
+  box-shadow:
+    20px 20px 0 #ef233c;
+}
+
+.detailImagePlaceholder {
+  width: 100%;
+  height: 100%;
+  min-height: 32rem;
+
+  display: grid;
+  place-items: center;
+
+  background:
+    repeating-linear-gradient(
+      -45deg,
+      rgba(8, 8, 8, 0.06),
+      rgba(8, 8, 8, 0.06) 8px,
+      rgba(8, 8, 8, 0.16) 8px,
+      rgba(8, 8, 8, 0.16) 14px
+    ),
+    #f4efe6;
+
+  clip-path: polygon(
+    3% 2%,
+    98% 1%,
+    96% 96%,
+    2% 98%
+  );
+
+  font-family:
+    Impact,
+    Haettenschweiler,
+    "Arial Narrow Bold",
+    sans-serif;
+
+  font-size:
+    clamp(2.5rem, 5vw, 5rem);
+
+  transform: rotate(-3deg);
+}
+
+/* BODY */
+
+.detailBody {
+  position: relative;
+
+  padding:
+    7rem 8vw
+    9rem;
+
+  background: #080808;
+  color: #f4efe6;
+}
+
+.detailBody::before {
+  content: "";
+
+  position: absolute;
+
+  top: -3rem;
+  left: -5vw;
+
+  width: 110vw;
+  height: 6rem;
+
+  background: #080808;
+
+  transform: rotate(-2deg);
+
+  z-index: 0;
+}
+
+.detailBody > * {
+  position: relative;
+  z-index: 2;
+}
+
+.detailSectionLabel {
+  display: inline-block;
+
+  padding:
+    0.55rem
+    0.85rem;
+
+  background: #ef233c;
+  color: white;
+
+  font-weight: 1000;
+  letter-spacing: 0.15em;
+
+  transform: rotate(-2deg);
+
+  box-shadow:
+    7px 7px 0 #f4efe6;
+}
+
+.detailLead {
+  max-width: 900px;
+
+  margin:
+    3rem 0
+    5rem;
+
+  font-size:
+    clamp(1.8rem, 3vw, 3.2rem);
+
+  line-height: 1.05;
+
+  font-weight: 900;
+  text-transform: uppercase;
+}
+
+.detailGrid {
+  display: grid;
+
+  grid-template-columns:
+    repeat(3, 1fr);
+
+  gap: 2rem;
+}
+
+.detailGrid article {
+  position: relative;
+
+  padding:
+    2rem
+    1.6rem;
+
+  background: #f4efe6;
+  color: #080808;
+
+  min-height: 19rem;
+
+  clip-path: polygon(
+    3% 2%,
+    98% 0,
+    94% 96%,
+    0 100%
+  );
+
+  transition:
+    transform 200ms ease;
+}
+
+.detailGrid article:nth-child(1) {
+  transform: rotate(-2deg);
+}
+
+.detailGrid article:nth-child(2) {
+  transform: translateY(1rem) rotate(1deg);
+}
+
+.detailGrid article:nth-child(3) {
+  transform: rotate(-1deg);
+}
+
+.detailGrid article:hover {
+  transform:
+    translateY(-8px)
+    rotate(-2deg);
+}
+
+.detailSmallLabel {
+  display: inline-block;
+
+  background: #ef233c;
+  color: white;
+
+  padding:
+    0.4rem
+    0.55rem;
+
+  font-size: 0.65rem;
+  font-weight: 1000;
+  letter-spacing: 0.14em;
+
+  transform: rotate(-2deg);
+}
+
+.detailGrid h2 {
+  margin:
+    1.5rem 0
+    1rem;
+
+  font-family:
+    Impact,
+    Haettenschweiler,
+    "Arial Narrow Bold",
+    sans-serif;
+
+  font-size:
+    clamp(2.3rem, 4vw, 4rem);
+
+  line-height: 0.9;
+
+  text-transform: uppercase;
+}
+
+.detailGrid p {
+  line-height: 1.5;
+  font-weight: 700;
+}
+
+.detailTools {
+  margin-top: 6rem;
+
+  display: flex;
+  flex-wrap: wrap;
+  align-items: center;
+
+  gap: 0.7rem;
+}
+
+.detailTools > span {
+  color: #ef233c;
+
+  font-weight: 1000;
+  letter-spacing: 0.14em;
+}
+
+.detailTools b {
+  padding:
+    0.45rem
+    0.65rem;
+
+  border:
+    2px solid #f4efe6;
+
+  font-size: 0.72rem;
+  letter-spacing: 0.1em;
+}
+
+.detailTools b:nth-child(even) {
+  transform: rotate(2deg);
+}
+
+.detailTools b:nth-child(odd) {
+  transform: rotate(-2deg);
+}
+
+/* ---------------------------------
+   BACK TO WORK TRANSITION
+---------------------------------- */
+
+.detailTransition {
+  position: fixed;
+  inset: 0;
+
+  z-index: 9999;
+
+  display: none;
+
+  background: #ef233c;
+
+  pointer-events: none;
+
+  overflow: hidden;
+
+  transform: skewX(-10deg);
+}
+
+.detailTransition::before {
+  content: "";
+
+  position: absolute;
+  inset: 0;
+
+  background:
+    repeating-linear-gradient(
+      -45deg,
+      rgba(0, 0, 0, 0.08),
+      rgba(0, 0, 0, 0.08) 8px,
+      transparent 8px,
+      transparent 16px
+    );
+}
+
+.detailTransitionStripe {
+  position: absolute;
+
+  top: 0;
+  bottom: 0;
+
+  left: 30%;
+
+  width: 14%;
+
+  background: #080808;
+
+  transform: skewX(8deg);
+}
+
+.detailTransitionText {
+  position: absolute;
+
+  left: 50%;
+  top: 50%;
+
+  transform:
+    translate(-50%, -50%)
+    skewX(10deg)
+    rotate(4deg);
+
+  color: #f4efe6;
+
+  font-family:
+    Impact,
+    Haettenschweiler,
+    "Arial Narrow Bold",
+    sans-serif;
+
+  font-size: clamp(5rem, 13vw, 13rem);
+
+  line-height: 0.8;
+
+  letter-spacing: -0.04em;
+
+  white-space: nowrap;
+
+  text-shadow:
+    8px 8px 0 #080808;
+}
+
+@media (max-width: 900px) {
+  .detailHero {
+    grid-template-columns: 1fr;
+    padding-inline: 1.5rem;
+  }
+
+  .detailHeroImage {
+    min-height: 26rem;
+  }
+
+  .detailImagePlaceholder {
+    min-height: 24rem;
+  }
+
+  .detailGrid {
+    grid-template-columns: 1fr;
+  }
+
+  .detailBody {
+    padding-inline: 1.5rem;
+  }
+}
+
+@media (max-width: 600px) {
+  .detailBack {
+    top: 1rem;
+    left: 1rem;
+  }
+
+  .detailHero {
+    padding-top: 7rem;
+  }
+
+  .detailNumber {
+    font-size: 8rem;
+  }
+
+  .detailTitle {
+    font-size: 5rem;
+  }
+
+  .detailLead {
+    font-size: 1.8rem;
+  }
+}
