@@ -1,3 +1,5 @@
+import PageTransition from "./components/PageTransition/PageTransition";
+import { projects } from "./data/projects";
 import { useNavigate } from "react-router-dom";
 import { useLayoutEffect, useRef } from "react";
 import gsap from "gsap";
@@ -5,36 +7,6 @@ import { ScrollTrigger } from "gsap/ScrollTrigger";
 import "./work.css";
 
 gsap.registerPlugin(ScrollTrigger);
-
-const projects = [
-    {
-        number: "001",
-        title: "PROJECT\nALPHA",
-        slug: "project-alpha",
-        category: "CREATIVE DEVELOPMENT",
-        description:
-            "A short description explaining what this project is and why it matters.",
-        tags: ["DESIGN", "CODE", "EXPERIMENT"],
-    },
-    {
-        number: "002",
-        title: "PROJECT\nBETA",
-        slug: "project-beta",
-        category: "INTERACTIVE EXPERIENCE",
-        description:
-            "Another project can live here with a different visual identity and focus.",
-        tags: ["WEB", "MOTION", "UI"],
-    },
-    {
-        number: "003",
-        title: "PROJECT\nGAMMA",
-        slug: "project-gamma",
-        category: "VISUAL EXPERIMENT",
-        description:
-            "Use these project entries for anything worth exploring in more detail.",
-        tags: ["ART", "SYSTEM", "IDEA"],
-    },
-];
 
 export default function Work() {
     const sectionRef = useRef<HTMLElement>(null);
@@ -148,17 +120,10 @@ export default function Work() {
     };
     return (
         <>
-            <div
-                className="workTransition"
+            <PageTransition
                 ref={transitionRef}
-                aria-hidden="true"
-            >
-                <div className="workTransitionStripe" />
-
-                <span className="workTransitionText">
-                    OPEN CASE
-                </span>
-            </div>
+                label="OPEN CASE"
+            />
 
             <section
                 className="workSection"
@@ -212,13 +177,11 @@ export default function Work() {
                                 </span>
 
                                 <h3 className="projectTitle">
-                                    {project.title
-                                        .split("\n")
-                                        .map((line) => (
-                                            <span key={line}>
-                                                {line}
-                                            </span>
-                                        ))}
+                                    {project.title.map((line) => (
+                                        <span key={line}>
+                                            {line}
+                                        </span>
+                                    ))}
                                 </h3>
 
                                 <p className="projectDescription">

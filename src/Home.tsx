@@ -1,3 +1,4 @@
+import PageTransition from "./components/PageTransition/PageTransition";
 import { useLayoutEffect, useRef } from "react";
 import gsap from "gsap";
 import "./home.css";
@@ -387,20 +388,10 @@ export default function Home() {
     };
     return (
         <>
-            <div
-                className="pageTransition"
+            <PageTransition
                 ref={transitionRef}
-                aria-hidden="true"
-            >
-                <div className="pageTransitionStripe" />
-
-                <span
-                    className="pageTransitionText"
-                    ref={transitionTextRef}
-                >
-                    01 / WORK
-                </span>
-            </div>
+                label="01 / WORK"
+            />
 
             <main className="personaHome" ref={pageRef}>
                 <div className="personaNoise" aria-hidden="true" />

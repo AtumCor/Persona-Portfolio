@@ -1,0 +1,76 @@
+.pageTransition {
+    position: fixed;
+    inset: 0;
+    z-index: 9999;
+
+    display: none;
+
+    background: var(--accent);
+
+    transform: skewX(-10deg);
+    pointer-events: none;
+    overflow: hidden;
+}
+
+.pageTransition::before {
+    content: "";
+    position: absolute;
+    inset: 0;
+
+    background:
+        repeating-linear-gradient(
+            -45deg,
+            rgba(0, 0, 0, 0.08),
+            rgba(0, 0, 0, 0.08) 8px,
+            transparent 8px,
+            transparent 16px
+        );
+}
+
+.pageTransitionStripe {
+    position: absolute;
+    top: 0;
+    bottom: 0;
+    left: 56%;
+
+    width: 14%;
+
+    background: var(--ink);
+
+    transform: skewX(8deg);
+}
+
+.pageTransitionText {
+    position: absolute;
+    left: 50%;
+    top: 50%;
+
+    transform:
+        translate(-50%, -50%)
+        skewX(10deg)
+        rotate(-4deg);
+
+    color: var(--paper);
+
+font-family: var(--font-display);
+
+    font-size: clamp(5rem, 13vw, 13rem);
+    line-height: 0.8;
+    letter-spacing: -0.04em;
+    white-space: nowrap;
+
+    text-shadow:
+        8px 8px 0 var(--ink);
+}
+
+/* Reversed transition used when returning from a project */
+.pageTransitionReverse .pageTransitionStripe {
+    left: 30%;
+}
+
+.pageTransitionReverse .pageTransitionText {
+    transform:
+        translate(-50%, -50%)
+        skewX(10deg)
+        rotate(4deg);
+}

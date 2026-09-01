@@ -1,3 +1,5 @@
+import PageTransition from "./components/PageTransition/PageTransition";
+import { getProjectBySlug, projects } from "./data/projects";
 import { useLayoutEffect, useRef } from "react";
 import {
     useLocation,
@@ -7,35 +9,7 @@ import {
 import gsap from "gsap";
 import "./projectDetail.css";
 
-const projectData = {
-    "project-alpha": {
-        number: "001",
-        title: ["PROJECT", "ALPHA"],
-        category: "CREATIVE DEVELOPMENT",
-        description:
-            "A generic case study placeholder for a creative project. Replace this with the real project story later.",
-        role: "DESIGN / DEVELOPMENT",
-        tools: ["REACT", "TYPESCRIPT", "GSAP"],
-    },
-    "project-beta": {
-        number: "002",
-        title: ["PROJECT", "BETA"],
-        category: "INTERACTIVE EXPERIENCE",
-        description:
-            "A second placeholder case study for an interactive project or experiment.",
-        role: "INTERACTION / UI",
-        tools: ["WEB", "MOTION", "SYSTEM"],
-    },
-    "project-gamma": {
-        number: "003",
-        title: ["PROJECT", "GAMMA"],
-        category: "VISUAL EXPERIMENT",
-        description:
-            "A third placeholder case study that can later hold process notes, screenshots, and results.",
-        role: "ART / DEVELOPMENT",
-        tools: ["DESIGN", "CODE", "EXPERIMENT"],
-    },
-};
+
 
 export default function ProjectDetail() {
     const pageRef = useRef<HTMLElement>(null);
@@ -45,9 +19,7 @@ export default function ProjectDetail() {
     const location = useLocation();
     const { slug } = useParams();
 
-    const project =
-        projectData[slug as keyof typeof projectData] ??
-        projectData["project-alpha"];
+    const project = getProjectBySlug(slug) ?? projects[0];
 
     useLayoutEffect(() => {
         window.scrollTo({
@@ -190,20 +162,12 @@ export default function ProjectDetail() {
 
     return (
         <>
-            <div
-                className="detailTransition"
+            <PageTransition
                 ref={transitionRef}
-                aria-hidden="true"
-            >
-                <div className="detailTransitionStripe" />
-
-                <span
-                    className="detailTransitionText"
-                    ref={transitionTextRef}
-                >
-                    OPEN CASE
-                </span>
-            </div>
+                textRef={transitionTextRef}
+                label="BACK TO WORK"
+                reverse
+            />
 
             <main
                 className="projectDetail"
