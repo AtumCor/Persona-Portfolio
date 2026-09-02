@@ -25,11 +25,10 @@ const stats = [
 ];
 
 const specialties = [
-  "INTERACTION",
-  "MOTION",
-  "WEB",
-  "VISUAL SYSTEMS",
-  "EXPERIMENTS",
+  "PHOTOSHOP",
+  "VIDEOTOGRAPHY",
+  "GRAPHIC DESIGN",
+  "SOCIAL MEDIA",
 ];
 
 export default function About() {
@@ -65,14 +64,14 @@ export default function About() {
         },
       });
 
-      gsap.from(".aboutPortrait", {
+      gsap.from(".aboutPortraitWrap", {
         scale: 0.7,
-        rotation: -12,
+        rotation: -9,
         autoAlpha: 0,
         duration: 0.7,
         ease: "back.out(1.5)",
         scrollTrigger: {
-          trigger: ".aboutPortrait",
+          trigger: ".aboutPortraitWrap",
           start: "top 82%",
           once: true,
         },
@@ -132,15 +131,16 @@ export default function About() {
       </div>
 
       <div className="aboutLayout">
-        <div className="aboutPortrait">
-          <div className="aboutPortraitInner">
-            <span>PORTRAIT</span>
+        <div className="aboutPortraitWrap">
+          <div className="aboutPortrait">
+            <div className="aboutPortraitInner">
+              <span>PORTRAIT</span>
 
-            <small>
-              / CHARACTER ART /
-            </small>
+              <small>
+                / CHARACTER ART /
+              </small>
+            </div>
           </div>
-
           <span className="aboutPortraitTag">
             PLAYER 00
           </span>
