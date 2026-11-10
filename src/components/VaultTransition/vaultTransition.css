@@ -1,0 +1,335 @@
+/*
+ * PERSONA VAULT // 00
+ * Visual-only reskin. The existing GSAP timeline, routing, and Windows
+ * reduced-motion override in VaultTransition.tsx remain unchanged.
+ * Uses the same design tokens as the rest of the portfolio.
+ */
+.vaultTransition {
+  --v-ink: var(--ink, #151313);
+  --v-paper: var(--paper, #fff);
+  --v-accent: var(--accent, #303579);
+  --v-display: var(--font-display, Impact, Haettenschweiler, "Arial Narrow Bold", sans-serif);
+  position: fixed;
+  inset: 0;
+  z-index: 20000;
+  isolation: isolate;
+  overflow: hidden;
+  pointer-events: all;
+  background: transparent;
+  opacity: 1;
+  visibility: visible;
+}
+
+.vaultBackdrop {
+  position: absolute;
+  inset: 0;
+  z-index: 0;
+  background: transparent;
+}
+
+/* Two graphic panels, not photorealistic metal. A slight overlap keeps
+   the page hidden while the doors meet at their zig-zag seam. */
+.vaultDoor {
+  position: absolute;
+  top: -2%;
+  width: calc(50% + 2.5vw);
+  height: 104%;
+  z-index: 1;
+  overflow: hidden;
+  will-change: transform;
+  background-color: var(--v-paper);
+  background-image:
+    radial-gradient(circle, rgba(21,19,19,.16) 0 1px, transparent 1.3px),
+    repeating-linear-gradient(-44deg, transparent 0 26px, rgba(21,19,19,.035) 26px 28px);
+  background-size: 16px 16px, auto;
+  box-shadow: inset -17px 0 0 var(--v-ink);
+}
+.vaultDoor--left {
+  left: 0;
+  clip-path: polygon(0 0, 100% 0, 100% 35%, 96% 44%, 100% 54%, 100% 100%, 0 100%);
+}
+.vaultDoor--right {
+  right: 0;
+  background-color: var(--v-accent);
+  background-image:
+    radial-gradient(circle, rgba(255,255,255,.16) 0 1px, transparent 1.3px),
+    repeating-linear-gradient(45deg, transparent 0 30px, rgba(0,0,0,.08) 30px 33px);
+  background-size: 16px 16px, auto;
+  clip-path: polygon(0 0, 100% 0, 100% 100%, 0 100%, 0 55%, 4% 46%, 0 35%);
+  box-shadow: inset 17px 0 0 var(--v-ink);
+}
+
+/* Big directional slashes echo the landing page's angular streaks. */
+.vaultDoor::after {
+  content: "";
+  position: absolute;
+  z-index: 0;
+  pointer-events: none;
+  width: 165%;
+  height: 21%;
+  left: -30%;
+  top: 23%;
+  background: var(--v-accent);
+  transform: rotate(-20deg) skewX(-12deg);
+  box-shadow: 0 16px 0 var(--v-ink);
+}
+.vaultDoor--right::after {
+  background: var(--v-paper);
+  box-shadow: 0 16px 0 var(--v-ink);
+  top: 65%;
+  transform: rotate(16deg) skewX(12deg);
+}
+
+/* Small mission labels at the top of each panel. */
+.vaultDoor::before {
+  content: "NO. 00   ///   SELECT YOUR PATH";
+  position: absolute;
+  z-index: 3;
+  top: 6%;
+  left: 9%;
+  max-width: 80%;
+  padding: .6rem .85rem;
+  background: var(--v-ink);
+  color: var(--v-paper);
+  box-shadow: 6px 6px 0 var(--v-accent);
+  font-size: clamp(.54rem, 1vw, .8rem);
+  font-weight: 1000;
+  letter-spacing: .17em;
+  transform: rotate(-3deg);
+}
+.vaultDoor--right::before {
+  content: "ACCESS REQUEST   ///   01";
+  left: auto;
+  right: 9%;
+  background: var(--v-paper);
+  color: var(--v-ink);
+  box-shadow: 6px 6px 0 var(--v-ink);
+  transform: rotate(3deg);
+}
+
+/* The inset is a giant comic/game-style title card. */
+.vaultDoorInset {
+  position: absolute;
+  z-index: 2;
+  inset: 21% 10% 19%;
+  overflow: hidden;
+  border: clamp(4px, .55vw, 7px) solid var(--v-ink);
+  background: rgba(255,255,255,.86);
+  box-shadow: 13px 13px 0 var(--v-accent);
+  transform: rotate(-3deg);
+  clip-path: polygon(3% 0, 100% 3%, 97% 100%, 0 96%);
+}
+.vaultDoor--right .vaultDoorInset {
+  border-color: var(--v-ink);
+  background: var(--v-ink);
+  box-shadow: -13px 13px 0 var(--v-paper);
+  transform: rotate(3deg);
+  clip-path: polygon(0 3%, 97% 0, 100% 96%, 3% 100%);
+}
+.vaultDoorInset::before {
+  content: "NO. 00";
+  white-space: pre;
+  position: absolute;
+  top: 42%;
+  left: 3%;
+  z-index: 1;
+  color: var(--v-accent);
+  font-family: var(--v-display);
+  font-size: clamp(5rem, 15vw, 18rem);
+  line-height: .72;
+  letter-spacing: -.06em;
+  text-transform: uppercase;
+  -webkit-text-stroke: 1.5px var(--v-ink);
+  text-shadow: .045em .045em 0 var(--v-ink);
+  transform: rotate(-7deg);
+}
+.vaultDoor--right .vaultDoorInset::before {
+  content: "ARCHIVE.";
+  top: 40%;
+  left: 20%;
+  color: var(--v-paper);
+  font-size: clamp(3rem, 9vw, 11rem);
+  -webkit-text-stroke: 1px var(--v-paper);
+  text-shadow: .055em .055em 0 var(--v-accent);
+  transform: rotate(5deg);
+}
+.vaultDoorInset::after {
+  content: "///";
+  position: absolute;
+  right: 3%;
+  bottom: -10%;
+  color: var(--v-ink);
+  font-family: var(--v-display);
+  font-size: clamp(5rem, 12vw, 11rem);
+  letter-spacing: -.15em;
+  transform: rotate(-13deg);
+}
+.vaultDoor--right .vaultDoorInset::after {
+  color: var(--v-accent);
+  right: 5%;
+  bottom: -12%;
+}
+
+/* Halftone ink blocks take the place of rivets and chrome. */
+.vaultDoorRivets {
+  position: absolute;
+  z-index: 1;
+  inset: 0;
+  pointer-events: none;
+  background-image: radial-gradient(circle, currentColor 0 1.4px, transparent 1.7px);
+  background-size: 15px 15px;
+  color: var(--v-ink);
+  opacity: .24;
+  mask-image: linear-gradient(90deg, #000, transparent 36%, transparent 64%, #000);
+}
+.vaultDoor--right .vaultDoorRivets { color: var(--v-paper); opacity: .25; }
+
+.vaultDoorMark {
+  position: absolute;
+  z-index: 3;
+  bottom: 7%;
+  left: 9%;
+  display: inline-block;
+  padding: .6rem .9rem;
+  background: var(--v-accent);
+  color: var(--v-paper);
+  border: 3px solid var(--v-ink);
+  box-shadow: 6px 6px 0 var(--v-ink);
+  font-size: clamp(.57rem, 1.1vw, .83rem);
+  font-weight: 1000;
+  letter-spacing: .17em;
+  transform: rotate(-3deg);
+}
+.vaultDoor--right .vaultDoorMark {
+  left: auto;
+  right: 9%;
+  background: var(--v-paper);
+  color: var(--v-ink);
+  transform: rotate(3deg);
+}
+
+/* The central dial is a flat icon-like graphic rather than a steel wheel. */
+.vaultLock {
+  position: absolute;
+  left: 50%;
+  top: 50%;
+  z-index: 5;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 1.35rem;
+  transform: translate(-50%, -50%);
+  will-change: opacity, transform;
+}
+.vaultLock::before {
+  content: "";
+  position: absolute;
+  z-index: -1;
+  width: clamp(14rem, 30vw, 26rem);
+  aspect-ratio: 1;
+  top: -3.2rem;
+  left: 50%;
+  translate: -50% 0;
+  background: var(--v-paper);
+  clip-path: polygon(50% 0%, 60% 31%, 81% 9%, 74% 36%, 100% 28%, 78% 51%, 100% 67%, 70% 65%, 82% 100%, 55% 74%, 37% 100%, 36% 70%, 7% 86%, 25% 55%, 0 41%, 28% 39%, 14% 8%, 43% 31%);
+  filter: drop-shadow(8px 8px 0 var(--v-ink));
+}
+.vaultLockFrame {
+  position: relative;
+  z-index: 1;
+  display: grid;
+  place-items: center;
+  width: clamp(8.5rem, 19vw, 14rem);
+  aspect-ratio: 1;
+  padding: .85rem;
+  border: clamp(6px, .9vw, 11px) solid var(--v-ink);
+  background: var(--v-accent);
+  box-shadow: 12px 12px 0 var(--v-ink), -6px -6px 0 var(--v-paper);
+  clip-path: polygon(8% 0, 92% 0, 100% 8%, 100% 92%, 92% 100%, 8% 100%, 0 92%, 0 8%);
+  will-change: transform;
+}
+.vaultWheel {
+  position: relative;
+  width: 100%;
+  aspect-ratio: 1;
+  border: 6px solid var(--v-ink);
+  border-radius: 50%;
+  background: var(--v-paper);
+  box-shadow: inset 0 0 0 5px var(--v-accent), 5px 5px 0 var(--v-ink);
+  will-change: transform;
+}
+.vaultWheelSpoke {
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  width: 86%;
+  height: 15%;
+  border: 3px solid var(--v-ink);
+  background: var(--v-accent);
+  transform: translate(-50%, -50%);
+  box-shadow: 2px 2px 0 var(--v-ink);
+}
+.vaultWheelSpoke--two { transform: translate(-50%, -50%) rotate(45deg); }
+.vaultWheelSpoke--three { transform: translate(-50%, -50%) rotate(90deg); }
+.vaultWheelSpoke--four { transform: translate(-50%, -50%) rotate(135deg); }
+.vaultWheelHub {
+  position: absolute;
+  z-index: 2;
+  top: 50%;
+  left: 50%;
+  width: 29%;
+  aspect-ratio: 1;
+  border: 4px solid var(--v-ink);
+  border-radius: 50%;
+  background: var(--v-paper);
+  box-shadow: inset 0 0 0 3px var(--v-accent);
+  transform: translate(-50%, -50%);
+}
+.vaultLockLabel {
+  position: relative;
+  z-index: 2;
+  max-width: 92vw;
+  padding: .7rem 1.05rem;
+  border: 4px solid var(--v-ink);
+  background: var(--v-accent);
+  color: var(--v-paper);
+  box-shadow: 8px 8px 0 var(--v-ink);
+  font-size: clamp(.66rem, 1.55vw, .95rem);
+  font-weight: 1000;
+  letter-spacing: .16em;
+  text-align: center;
+  white-space: nowrap;
+  text-transform: uppercase;
+  transform: rotate(-3deg);
+}
+.vaultTransition--exit .vaultLockFrame { background: var(--v-ink); }
+.vaultTransition--exit .vaultLockLabel {
+  background: var(--v-paper);
+  color: var(--v-ink);
+}
+
+@media (max-width: 800px) {
+  .vaultDoorInset { inset: 23% 7% 21%; }
+  .vaultDoorInset::before { font-size: clamp(4rem, 16vw, 10rem); }
+  .vaultDoor--right .vaultDoorInset::before { font-size: clamp(2.7rem, 9.5vw, 7rem); }
+  .vaultDoor::before { top: 8%; left: 6%; max-width: 87%; letter-spacing: .08em; }
+  .vaultDoor--right::before { left: auto; right: 6%; }
+}
+@media (max-width: 620px) {
+  .vaultDoor { width: calc(50% + 4vw); }
+  .vaultDoorInset { inset: 20% 7% 21%; border-width: 4px; box-shadow: 6px 6px 0 var(--v-accent); }
+  .vaultDoor--right .vaultDoorInset { box-shadow: -6px 6px 0 var(--v-paper); }
+  .vaultDoorInset::before { top: 24%; left: 1%; font-size: clamp(3.4rem, 18vw, 5rem); }
+  .vaultDoor--right .vaultDoorInset::before { top: 19%; left: 4%; font-size: clamp(2rem, 8.5vw, 3rem); }
+  .vaultDoorInset::after { font-size: 5rem; }
+  .vaultDoor::before { font-size: .52rem; padding: .45rem .5rem; }
+  .vaultDoorMark { bottom: 9%; padding: .4rem .45rem; font-size: .5rem; letter-spacing: .04em; }
+  .vaultDoor--right .vaultDoorMark { right: 5%; }
+  .vaultLock { gap: 1rem; }
+  .vaultLock::before { width: 15rem; top: -2.5rem; }
+  .vaultLockFrame { width: clamp(8rem, 32vw, 11rem); padding: .55rem; border-width: 6px; box-shadow: 7px 7px 0 var(--v-ink), -4px -4px 0 var(--v-paper); }
+  .vaultWheel { border-width: 4px; box-shadow: inset 0 0 0 3px var(--v-accent), 3px 3px 0 var(--v-ink); }
+  .vaultWheelSpoke { border-width: 2px; }
+  .vaultWheelHub { border-width: 3px; }
+  .vaultLockLabel { max-width: 96vw; padding: .55rem .7rem; border-width: 3px; box-shadow: 5px 5px 0 var(--v-ink); font-size: .6rem; letter-spacing: .06em; }
+}

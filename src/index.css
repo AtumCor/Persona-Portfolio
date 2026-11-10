@@ -1,38 +1,17 @@
 :root {
-    --ink: #080808;
-    --paper: #f4efe6;
-    --accent: #ef233c;
-
-    --font-body: Arial, Helvetica, sans-serif;
-    --font-display:
-        Impact,
-        Haettenschweiler,
-        "Arial Narrow Bold",
-        sans-serif;
+  --ink: #151313;
+  --paper: #FFFFFF;
+  --accent: #303579;
+  --secondary: #2B2929;
+  --font-body: Arial, Helvetica, sans-serif;
+  --font-display: Impact, Haettenschweiler, "Arial Narrow Bold", sans-serif;
 }
 
-*,
-*::before,
-*::after {
-    box-sizing: border-box;
-}
-
-html,
-body,
-#root {
-    margin: 0;
-    min-width: 100%;
-    min-height: 100%;
-}
-
-body {
-    background: var(--ink);
-    color: var(--paper);
-    font-family: var(--font-body);
-}
-
-button,
-input,
-textarea {
-    font: inherit;
-}
+*, *::before, *::after { box-sizing: border-box; }
+html { scroll-behavior: auto; background: var(--ink); }
+html, body, #root { margin: 0; min-width: 100%; min-height: 100%; }
+body { background: var(--ink); color: var(--paper); font-family: var(--font-body); }
+button, input, textarea { font: inherit; }
+a { color: inherit; }
+img { max-width: 100%; }
+::selection { background: var(--paper); color: var(--ink); }
