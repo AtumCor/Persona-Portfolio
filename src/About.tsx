@@ -1,35 +1,12 @@
 import { useLayoutEffect, useRef } from "react";
 import gsap from "gsap";
 import { ScrollTrigger } from "gsap/ScrollTrigger";
+import { site } from "./data/site";
 import "./about.css";
 
 gsap.registerPlugin(ScrollTrigger);
 
-const stats = [
-  {
-    label: "CREATIVE DIRECTION",
-    value: 92,
-  },
-  {
-    label: "DEVELOPMENT",
-    value: 86,
-  },
-  {
-    label: "DESIGN",
-    value: 88,
-  },
-  {
-    label: "EXPERIMENTATION",
-    value: 95,
-  },
-];
-
-const specialties = [
-  "PHOTOSHOP",
-  "VIDEOTOGRAPHY",
-  "GRAPHIC DESIGN",
-  "SOCIAL MEDIA",
-];
+const skills = site.about.specialties;
 
 export default function About() {
   const sectionRef = useRef<HTMLElement>(null);
@@ -64,39 +41,29 @@ export default function About() {
         },
       });
 
-      gsap.from(".aboutPortraitWrap", {
-        scale: 0.7,
-        rotation: -9,
+      gsap.from(".aboutCharacterStage", {
+        x: -90,
+        y: 35,
+        scale: 0.92,
         autoAlpha: 0,
-        duration: 0.7,
-        ease: "back.out(1.5)",
-        scrollTrigger: {
-          trigger: ".aboutPortraitWrap",
-          start: "top 82%",
-          once: true,
-        },
-      });
-
-      gsap.from(".aboutInfoPanel", {
-        x: 100,
-        autoAlpha: 0,
-        duration: 0.6,
+        duration: 0.85,
         ease: "power4.out",
         scrollTrigger: {
-          trigger: ".aboutInfoPanel",
+          trigger: ".aboutCharacterStage",
           start: "top 82%",
           once: true,
         },
       });
 
-      gsap.from(".aboutStatFill", {
-        width: 0,
-        duration: 0.8,
+      gsap.from(".aboutInfoBox", {
+        x: 90,
+        autoAlpha: 0,
+        duration: 0.65,
         stagger: 0.12,
         ease: "power4.out",
         scrollTrigger: {
-          trigger: ".aboutStats",
-          start: "top 85%",
+          trigger: ".aboutInfoStack",
+          start: "top 82%",
           once: true,
         },
       });
@@ -106,22 +73,13 @@ export default function About() {
   }, []);
 
   return (
-    <section
-      className="aboutSection"
-      id="about"
-      ref={sectionRef}
-    >
+    <section className="aboutSection" id="about" ref={sectionRef}>
       <div className="aboutHeader">
-        <span className="aboutNumber">02</span>
+        <span className="aboutNumber">01</span>
 
         <div>
-          <span className="aboutKicker">
-            PROFILE DATA ///
-          </span>
-
-          <h2 className="aboutTitle">
-            ABOUT
-          </h2>
+          <span className="aboutKicker">PROFILE DATA ///</span>
+          <h2 className="aboutTitle">ABOUT</h2>
         </div>
 
         <span className="aboutStatus">
@@ -131,80 +89,63 @@ export default function About() {
       </div>
 
       <div className="aboutLayout">
-        <div className="aboutPortraitWrap">
-          <div className="aboutPortrait">
-            <div className="aboutPortraitInner">
-              <span>PORTRAIT</span>
+        <div className="aboutCharacterStage">
+          <img
+            className="aboutCharacterImage"
+            src={site.about.portraitImage}
+            alt="Profile portrait"
+          />
 
-              <small>
-                / CHARACTER ART /
-              </small>
-            </div>
+          <div className="aboutCharacterName">
+            <span>PLAYER</span>
+            <strong>00</strong>
           </div>
-          <span className="aboutPortraitTag">
-            PLAYER 00
-          </span>
+
+          <div className="aboutCharacterReadout">
+            <span>PROFILE</span>
+            <strong>LV. 01</strong>
+          </div>
         </div>
 
-        <div className="aboutInfoPanel">
-          <span className="aboutLabel">
-            IDENTITY ///
-          </span>
+        <div className="aboutInfoStack">
+          <article className="aboutInfoBox aboutNameBox">
+            <span className="aboutBoxLabel">NAME ///</span>
+            <h3>{site.owner.name}</h3>
+          </article>
 
-          <h3>
-            CREATIVE
-            <span>PROFILE</span>
-          </h3>
+          <article className="aboutInfoBox aboutDescriptionBox">
+            <span className="aboutBoxLabel">DESCRIPTION ///</span>
+            <p>{site.about.bio}</p>
+          </article>
 
-          <p className="aboutBio">
-            A short introduction goes here. Use
-            this space to describe the person,
-            their creative interests, and what
-            kind of work they enjoy making.
-          </p>
+          <article className="aboutInfoBox aboutSkillsBox">
+            <div className="aboutSkillsHeader">
+              <span className="aboutBoxLabel">SKILLS ///</span>
+              <span className="aboutSkillsHint">SELECT YOUR SKILLS</span>
+            </div>
 
-          <div className="aboutSpecialties">
-            {specialties.map((specialty) => (
-              <span key={specialty}>
-                {specialty}
-              </span>
-            ))}
-          </div>
+            <div className="aboutSkillList">
+              {skills.map((skill, index) => (
+                <div className="aboutSkillItem" key={skill}>
+                  <span className="aboutSkillNumber">
+                    {String(index + 1).padStart(2, "0")}
+                  </span>
 
-          <div className="aboutStats">
-            {stats.map((stat) => (
-              <div
-                className="aboutStat"
-                key={stat.label}
-              >
-                <div className="aboutStatHeader">
-                  <span>{stat.label}</span>
+                  <span className="aboutSkillName">{skill}</span>
 
-                  <strong>
-                    {stat.value}
-                  </strong>
+                  <span className="aboutSkillArrow" aria-hidden="true">
+                    ↗
+                  </span>
                 </div>
-
-                <div className="aboutStatTrack">
-                  <div
-                    className="aboutStatFill"
-                    style={{
-                      width: `${stat.value}%`,
-                    }}
-                  />
-                </div>
-              </div>
-            ))}
-          </div>
+              ))}
+            </div>
+          </article>
         </div>
       </div>
 
       <div className="aboutFooterNote">
-        <span>PROFILE // 02</span>
-
-        <strong>
-          KEEP MAKING WEIRD THINGS.
-        </strong>
+        <span>PROFILE // 01</span>
+        <strong>KEEP MAKING WEIRD THINGS.</strong>
       </div>
     </section>
   );

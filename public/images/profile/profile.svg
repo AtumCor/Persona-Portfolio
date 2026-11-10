@@ -1,0 +1,7 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 660 820" role="img" aria-label="Abstract profile placeholder">
+<rect width="660" height="820" fill="#303579"/>
+<path d="M0 722 660 395V820H0Z" fill="#151313" opacity=".55"/>
+<circle cx="330" cy="266" r="128" fill="#ededed"/>
+<path d="M70 820C70 618 165 487 330 487S590 618 590 820" fill="#ededed"/>
+<path d="M40 120 170 48M475 44 616 176M64 414 170 374" stroke="#fff" stroke-width="12" opacity=".75"/>
+</svg>

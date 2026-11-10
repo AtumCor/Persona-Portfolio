@@ -1,43 +1,22 @@
 import { useLayoutEffect, useRef } from "react";
 import gsap from "gsap";
 import { ScrollTrigger } from "gsap/ScrollTrigger";
+import { site } from "./data/site";
 import "./contact.css";
 
 gsap.registerPlugin(ScrollTrigger);
 
-const contactLinks = [
-  {
-    label: "EMAIL",
-    value: "hello@example.com",
-    href: "mailto:hello@example.com",
-  },
-  {
-    label: "LINKEDIN",
-    value: "/IN/USERNAME",
-    href: "#",
-  },
-  {
-    label: "INSTAGRAM",
-    value: "@USERNAME",
-    href: "#",
-  },
-];
-
 export default function Contact() {
   const sectionRef = useRef<HTMLElement>(null);
+  const { contact } = site;
 
   useLayoutEffect(() => {
     const section = sectionRef.current;
-
     if (!section) return;
 
     const ctx = gsap.context(() => {
       const tl = gsap.timeline({
-        scrollTrigger: {
-          trigger: section,
-          start: "top 75%",
-          once: true,
-        },
+        scrollTrigger: { trigger: section, start: "top 75%", once: true },
       });
 
       tl.from(".contactNumber", {
@@ -48,11 +27,7 @@ export default function Contact() {
       })
         .from(
           ".contactKicker",
-          {
-            x: -80,
-            autoAlpha: 0,
-            duration: 0.35,
-          },
+          { x: -80, autoAlpha: 0, duration: 0.35 },
           "-=0.2",
         )
         .from(
@@ -68,11 +43,7 @@ export default function Contact() {
         )
         .from(
           ".contactIntro",
-          {
-            y: 40,
-            autoAlpha: 0,
-            duration: 0.4,
-          },
+          { y: 40, autoAlpha: 0, duration: 0.4 },
           "-=0.2",
         );
 
@@ -107,92 +78,59 @@ export default function Contact() {
   }, []);
 
   return (
-    <section
-      className="contactSection"
-      id="contact"
-      ref={sectionRef}
-    >
+    <section className="contactSection" id="contact" ref={sectionRef}>
       <div className="contactHeader">
-        <span className="contactNumber">03</span>
-
+        <span className="contactNumber">{contact.number}</span>
         <div>
-          <span className="contactKicker">
-            FINAL TRANSMISSION ///
-          </span>
-
+          <span className="contactKicker">{contact.kicker}</span>
           <h2 className="contactTitle">
-            <span>GET IN</span>
-            <span>TOUCH.</span>
+            <span>{contact.titleTop}</span>
+            <span>{contact.titleBottom}</span>
           </h2>
         </div>
-
         <span className="contactStatus">
-          CHANNEL
-          <strong>OPEN</strong>
+          {contact.statusLabel}
+          <strong>{contact.statusValue}</strong>
         </span>
       </div>
 
       <div className="contactLayout">
         <div className="contactMessage">
-          <span className="contactMessageLabel">
-            MESSAGE ///
-          </span>
-
-          <p className="contactIntro">
-            LET'S TALK!
-          </p>
-
-          <p className="contactSubtext">
-            Use this space for a short final
-            invitation to reach out.
-          </p>
-
-          <a
-            className="contactPrimary"
-            href="mailto:hello@example.com"
-          >
+          <span className="contactMessageLabel">{contact.messageLabel}</span>
+          <p className="contactIntro">{contact.intro}</p>
+          <p className="contactSubtext">{contact.subtext}</p>
+          <a className="contactPrimary" href={`mailto:${contact.email}`}>
             <span>↗</span>
-            SEND A MESSAGE
+            {contact.buttonText}
           </a>
         </div>
 
         <div className="contactLinks">
-          {contactLinks.map((link, index) => (
+          {contact.links.map((link, index) => (
             <a
               className="contactLink"
               href={link.href}
               key={link.label}
+              target={link.href.startsWith("http") ? "_blank" : undefined}
+              rel={link.href.startsWith("http") ? "noreferrer" : undefined}
             >
-              <span className="contactLinkNumber">
-                0{index + 1}
-              </span>
-
-              <span className="contactLinkLabel">
-                {link.label}
-              </span>
-
-              <strong>
-                {link.value}
-              </strong>
-
-              <span className="contactLinkArrow">
-                ↗
-              </span>
+              <span className="contactLinkNumber">0{index + 1}</span>
+              <span className="contactLinkLabel">{link.label}</span>
+              <strong>{link.value}</strong>
+              <span className="contactLinkArrow">↗</span>
             </a>
           ))}
         </div>
       </div>
 
       <div className="contactFinal">
-        <span>END OF FILE ///</span>
-
+        <span>{contact.finalLabel}</span>
         <strong>
-          LET&apos;S MAKE
+          {contact.finalMessageTop}
           <br />
-          SOMETHING LOUD.
+          {contact.finalMessageBottom}
         </strong>
-
-        <span>03 / CONTACT</span>
+        <span>{contact.footerLabel}</span>
       </div>
     </section>
   );
